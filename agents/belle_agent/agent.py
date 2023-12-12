@@ -3,7 +3,7 @@ import pathlib
 # Use dot here to denote importing the file in the folder hosting this file.
 from .ppo_trainer import PPOTrainer, PPOConfig
 
-FOLDER_ROOT = pathlib.Path(__file__).parent  # The path to the folder hosting this file.
+FOLDER_ROOT = "train_ppo_in_single_agent_env/ppo"  # The path to the folder hosting this file.
 
 
 class Policy:
@@ -24,7 +24,7 @@ class Policy:
     def __init__(self):
         config = PPOConfig()
         self.agent = PPOTrainer(config=config)
-        # self.agent.load_w(log_dir=FOLDER_ROOT, suffix="iter275")
+        self.agent.load_w(log_dir=FOLDER_ROOT, suffix="final")
 
     def reset(self, done_batch=None):
         """
